@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
 import commands
 from subprocess import Popen,PIPE,call,STDOUT

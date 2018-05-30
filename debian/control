@@ -1,12 +1,12 @@
-Source: mintstick
+Source: formatstick
 Section: misc
 Priority: optional
-Maintainer: Clement Lefebvre <root@linuxmint.com>
-Build-Depends: debhelper (>= 9), python
+Maintainer: khrysro <khrysro@github.com>
+Build-Depends: debhelper (>= 9), python3
 Build-Depends-Indep: gettext
 Standards-Version: 3.9.5
 
-Package: mintstick
+Package: formatstick
 Architecture: all
 Depends:
  ${misc:Depends},

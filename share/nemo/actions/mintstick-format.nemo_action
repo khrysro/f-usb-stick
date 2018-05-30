@@ -1,7 +1,7 @@
 [Nemo Action]
 Active=true
 Exec=mintstick -m format -u %D
-Icon-Name=edit-clear-all-symbolic
+Icon-Name=media-removable-symbolic
 Selection=S
 Extensions=any;
 Conditions=removable;
