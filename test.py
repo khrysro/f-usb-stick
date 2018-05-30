@@ -20,7 +20,7 @@ class DemoImpl(QDialog):
     def __init__(self, *args):
         super(DemoImpl, self).__init__(*args)
 
-        loadUi('/home/khrys/desarrollo/Formatstick/share/formatstick/formatstick.ui', self)
+        loadUi('~/formatstick/formatstick.ui', self)
 
     def 
 
