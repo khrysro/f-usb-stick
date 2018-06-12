@@ -26,8 +26,9 @@ class UDisks:
 
     def __init__(self):
         self.bus = dbus.SystemBus()
-        self.proxy = self.bus.get_object("org.freedesktop.UDisks", "/org/freedesktop/UDisks")
-        self.iface = dbus.Interface(self.proxy, "org.freedesktop.UDisks")
+        self.proxy = self.bus.get_object("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2/drives")
+        #self.iface = dbus.Interface(self.proxy, "org.freedesktop.UDisks")
+        self.iface = dbus.Interface(self.proxy,'org.freedesktop.DBus.ObjectManager')
 
     def EnumerateAdapters(self):
         """Enumerate all storage adapters on the system
@@ -165,17 +166,17 @@ class UDisks:
 
     @property
     def DaemonVersion(self):
-        return self.proxy.Get('org.freedesktop.UDisks', 'DaemonVersion')
+        return self.proxy.Get('org.freedesktop.UDisks2', 'DaemonVersion')
 
     @property
     def DaemonIsInhibited(self):
-        if self.proxy.Get('org.freedesktop.UDisks', 'DaemonIsInhibited'):
+        if self.proxy.Get('org.freedesktop.UDisks2', 'DaemonIsInhibited'):
             return True
         return False
 
     @property
     def SupportsLuksDevices(self):
-        if self.proxy.Get('org.freedesktop.UDisks', 'SupportsLuksDevices'):
+        if self.proxy.Get('org.freedesktop.UDisks2', 'SupportsLuksDevices'):
             return True
         return False
 

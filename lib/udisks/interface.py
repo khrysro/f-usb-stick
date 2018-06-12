@@ -17,7 +17,7 @@
 
 import dbus
 
-DISKS_IFACE = "org.freedesktop.UDisks"
+DISKS_IFACE = "org.freedesktop.UDisks2"
 DEVICE_IFACE = "org.freedesktop.UDisks.Device"
 PROPS_IFACE = "org.freedesktop.DBus.Properties"
 
@@ -26,11 +26,11 @@ class Interface:
     def __init__(self, object_path):
         self.bus = dbus.SystemBus()
         self.object_path = object_path    
-        self.object = self.bus.get_object("org.freedesktop.UDisks", self.object_path)
+        self.object = self.bus.get_object("org.freedesktop.UDisks2", self.object_path)
         self.properties_iface = dbus.Interface(self.object, PROPS_IFACE)
     
     def _get_property(self, name): 
-        return self.properties_iface.Get('org.freedesktop.UDisks.Device', name)
+        return self.properties_iface.Get('org.freedesktop.UDisks2.Device', name)
 
     def __str__(self):
         return str(self.object_path)
